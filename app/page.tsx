@@ -1,11 +1,12 @@
-import { Textarea } from "@/components/ui/textarea"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { CheckCircle, ArrowRight, Phone, Mail, MapPin, Award, Shield, Zap } from "lucide-react"
+import { Footer } from "@/components/footer"
+
+// Import the ContactForm component at the top of the file
+import { ContactForm } from "@/components/contact-form"
 
 export default function Home() {
   return (
@@ -27,7 +28,7 @@ export default function Home() {
             <Link href="#products" className="text-sm font-medium hover:underline underline-offset-4">
               Products
             </Link>
-            <Link href="#projects" className="text-sm font-medium hover:underline underline-offset-4">
+            <Link href="/projects" className="text-sm font-medium hover:underline underline-offset-4">
               Projects
             </Link>
             <Link href="#contact" className="text-sm font-medium hover:underline underline-offset-4">
@@ -47,9 +48,7 @@ export default function Home() {
                 <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm">
                   ISO 9001:2015 Certified Company
                 </div>
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  Swing your Fortunes up with swing in Pressure
-                </h1>
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">Gastek Engineering (P) Ltd.</h1>
                 <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   Gastek Engineering is a renowned manufacturer and exporter of high-quality Nitrogen Gas Generators,
                   PSA Oxygen Plants, and related products, setting industry benchmarks since 1993.
@@ -307,6 +306,41 @@ export default function Home() {
                   </Button>
                 </CardFooter>
               </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Carbon Molecular Sieves</CardTitle>
+                  <CardDescription>Advanced Gas Separation Media</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Image
+                    src="/images/cms.png"
+                    width={300}
+                    height={200}
+                    alt="Carbon Molecular Sieves"
+                    className="mb-4 aspect-video overflow-hidden rounded-lg object-contain bg-white p-2"
+                  />
+                  <ul className="space-y-2">
+                    <li className="flex items-center">
+                      <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
+                      <span>Precise pore size distribution</span>
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
+                      <span>High selectivity for gas separation</span>
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
+                      <span>Long service life</span>
+                    </li>
+                  </ul>
+                </CardContent>
+                <CardFooter>
+                  <Button className="w-full" asChild>
+                    <Link href="/products/cms">View Specifications</Link>
+                  </Button>
+                </CardFooter>
+              </Card>
             </div>
             <div className="mt-8 flex justify-center">
               <Button variant="outline" asChild>
@@ -360,6 +394,13 @@ export default function Home() {
                 </p>
               </div>
             </div>
+            <div className="mt-8 flex justify-center">
+              <Button variant="outline" asChild>
+                <Link href="/projects">
+                  See Our Projects <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
           </div>
         </section>
 
@@ -374,8 +415,8 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl grid-cols-2 md:grid-cols-3 lg:grid-cols-3 items-center gap-8 py-12">
-              <div className="flex items-center justify-center p-4 grayscale transition-all hover:grayscale-0">
+            <div className="mx-auto grid max-w-5xl grid-cols-2 md:grid-cols-3 lg:grid-cols-6 items-center gap-8 py-12">
+              <div className="flex items-center justify-center p-4 transition-all">
                 <Image
                   src="/images/brands/tata.png"
                   width={120}
@@ -384,7 +425,7 @@ export default function Home() {
                   className="aspect-[2/1] object-contain"
                 />
               </div>
-              <div className="flex items-center justify-center p-4 grayscale transition-all hover:grayscale-0">
+              <div className="flex items-center justify-center p-4 transition-all">
                 <Image
                   src="/images/brands/reliance.png"
                   width={120}
@@ -393,12 +434,39 @@ export default function Home() {
                   className="aspect-[2/1] object-contain"
                 />
               </div>
-              <div className="flex items-center justify-center p-4 grayscale transition-all hover:grayscale-0">
+              <div className="flex items-center justify-center p-4 transition-all">
                 <Image
                   src="/images/brands/divis.png"
                   width={120}
                   height={60}
                   alt="Divi's Laboratories Logo"
+                  className="aspect-[2/1] object-contain"
+                />
+              </div>
+              <div className="flex items-center justify-center p-4 transition-all">
+                <Image
+                  src="/images/brands/adani.png"
+                  width={120}
+                  height={60}
+                  alt="Adani Logo"
+                  className="aspect-[2/1] object-contain"
+                />
+              </div>
+              <div className="flex items-center justify-center p-4 transition-all">
+                <Image
+                  src="/images/brands/gail.png"
+                  width={120}
+                  height={60}
+                  alt="GAIL India Limited Logo"
+                  className="aspect-[2/1] object-contain"
+                />
+              </div>
+              <div className="flex items-center justify-center p-4 transition-all">
+                <Image
+                  src="/images/brands/jubilant.png"
+                  width={120}
+                  height={60}
+                  alt="Jubilant FoodWorks Logo"
                   className="aspect-[2/1] object-contain"
                 />
               </div>
@@ -430,64 +498,40 @@ export default function Home() {
                   <Mail className="h-6 w-6 text-gray-700" />
                   <div className="grid gap-1">
                     <h3 className="text-xl font-bold">Email</h3>
-                    <p className="text-gray-500">sales@gastekengg.com</p>
+                    <a href="mailto:sales@gastekengg.com" className="text-gray-500 hover:text-gray-700">
+                      sales@gastekengg.com
+                    </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <MapPin className="h-6 w-6 text-gray-700" />
                   <div className="grid gap-1">
                     <h3 className="text-xl font-bold">Address</h3>
-                    <p className="text-gray-500">704-705, Modicorp Tower, 98, Nehru Place, New Delhi, Delhi 110019, India</p>
+                    <p className="text-gray-500">
+                      704-705, Modicorp Tower, 98, Nehru Place, New Delhi, Delhi 110019, India
+                    </p>
                   </div>
                 </div>
               </div>
               <div className="grid gap-6">
-                <form className="grid gap-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="grid gap-2">
-                      <Label htmlFor="name">Name</Label>
-                      <Input id="name" placeholder="Your name" />
-                    </div>
-                    <div className="grid gap-2">
-                      <Label htmlFor="company">Company</Label>
-                      <Input id="company" placeholder="Your company" />
-                    </div>
-                  </div>
-                  <div className="grid gap-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input id="email" placeholder="Your email address" type="email" />
-                  </div>
-                  <div className="grid gap-2">
-                    <Label htmlFor="message">Message</Label>
-                    <Textarea className="min-h-[150px]" id="message" placeholder="Tell us about your requirements" />
-                  </div>
-                  <Button type="submit" className="w-full">
-                    Send Message
-                  </Button>
-                </form>
+                <ContactForm />
               </div>
+            </div>
+            <div className="flex justify-center mt-6">
+              <a
+                href="https://www.linkedin.com/company/gastek-engineering"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-gray-700 hover:text-gray-900"
+              >
+                <Image src="/images/linkedin-logo.png" width={24} height={24} alt="LinkedIn" className="rounded-sm" />
+                <span>Follow us on LinkedIn</span>
+              </a>
             </div>
           </div>
         </section>
       </main>
-      <footer className="w-full border-t py-6 md:py-0">
-        <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
-          <p className="text-center text-sm leading-loose text-gray-500 md:text-left">
-            © 2025 Gastek Engineering. All rights reserved.
-          </p>
-          <div className="flex gap-4">
-            <Link href="#" className="text-sm font-medium hover:underline underline-offset-4">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="text-sm font-medium hover:underline underline-offset-4">
-              Terms of Service
-            </Link>
-            <Link href="#" className="text-sm font-medium hover:underline underline-offset-4">
-              Sitemap
-            </Link>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

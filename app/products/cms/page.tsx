@@ -3,7 +3,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { CheckCircle, ArrowRight, Download, Phone } from "lucide-react"
 
-export default function HocDryerPage() {
+export default function CMSPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -41,9 +41,9 @@ export default function HocDryerPage() {
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
               <div className="space-y-4">
                 <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm">Product Specifications</div>
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">Heat of Compression Dryer</h1>
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">Carbon Molecular Sieves (CMS)</h1>
                 <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Advanced Heat of Compression (HOC) dryers based on adsorption principle for efficient air drying.
+                  High-quality Carbon Molecular Sieves for efficient gas separation applications.
                 </p>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Button asChild>
@@ -59,10 +59,10 @@ export default function HocDryerPage() {
                 </div>
               </div>
               <Image
-                src="/images/hoc-dryer.png"
+                src="/images/cms.png"
                 width={700}
                 height={550}
-                alt="Heat of Compression Dryer"
+                alt="Carbon Molecular Sieves"
                 className="mx-auto aspect-video overflow-hidden rounded-xl object-contain bg-white p-4 sm:w-full lg:order-last"
               />
             </div>
@@ -75,101 +75,95 @@ export default function HocDryerPage() {
               <div className="space-y-6">
                 <h2 className="text-3xl font-bold tracking-tighter">Product Overview</h2>
                 <p className="text-gray-500">
-                  The Heat of Compression dryers (HOC) are the latest generation chemical dryers based on adsorption
-                  principle. It does not have complex valvings & is eliminated with purge loss drawback as in heatless
-                  type dryer.
+                  Carbon Molecular Sieves (CMS) are specialized carbonaceous adsorbent materials with a precise pore
+                  size distribution, primarily used for gas separation processes. Unlike traditional activated carbons,
+                  CMS has a narrow pore size distribution that allows for highly selective adsorption based on the
+                  kinetic diameter of gas molecules.
                 </p>
                 <p className="text-gray-500">
-                  The hot air from the Compressor at 120°C and higher temp, is used directly for regeneration of the
-                  desiccant. After regeneration, this air is cooled down to 40°C and then it is dried in second tower.
-                  Thus, the use of heaters is eliminated.
+                  Our CMS products are manufactured using high-quality raw materials and advanced production techniques
+                  to ensure consistent performance and long service life. The unique microporous structure of our CMS
+                  enables efficient separation of gases in various industrial applications.
                 </p>
-                <p className="text-gray-500">
-                  For eg. in the 6+6 Hrs. Cycle the hot air is fed for regeneration for 4 Hrs. and for balance 2 Hr. a
-                  changeover takes place where the air is first cooled in cooler, then dried and before going to the
-                  outlet, cools the regenerated desiccant bed, thus bringing it down to ambient temperature. This cycle
-                  is reversed for the next 6Hrs. where the Adsorber drying the air in the previous cycle goes for
-                  regeneration and vice versa.
-                </p>
-                <h3 className="text-xl font-bold mt-6">Key Benefits</h3>
+                <h3 className="text-xl font-bold mt-6">Applications</h3>
                 <ul className="space-y-2">
                   <li className="flex items-center">
                     <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                    <span>No complex valvings</span>
+                    <span>Nitrogen generation from air (PSA technology)</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                    <span>Eliminated purge loss drawback</span>
+                    <span>Methane/nitrogen separation</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                    <span>No external heaters required</span>
+                    <span>Hydrogen purification</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                    <span>Energy efficient operation</span>
+                    <span>Air separation</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                    <span>Reliable performance</span>
+                    <span>Biogas upgrading</span>
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
+                    <span>Natural gas processing</span>
                   </li>
                 </ul>
               </div>
               <div className="space-y-6">
                 <h2 className="text-3xl font-bold tracking-tighter">Technical Specifications</h2>
                 <div className="rounded-lg border p-6">
-                  <h3 className="text-xl font-bold mb-4">Standard Features</h3>
+                  <h3 className="text-xl font-bold mb-4">Key Features</h3>
                   <ul className="space-y-2">
                     <li className="flex items-center">
                       <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                      <span>Capacity: 100-10000 CFM</span>
+                      <span>Precise pore size distribution</span>
                     </li>
                     <li className="flex items-center">
                       <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                      <span>No external power required</span>
+                      <span>High selectivity for gas separation</span>
                     </li>
                     <li className="flex items-center">
                       <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                      <span>Low maintenance operation</span>
+                      <span>Excellent mechanical strength</span>
                     </li>
                     <li className="flex items-center">
                       <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                      <span>Fully automatic operation</span>
+                      <span>Low dust content</span>
                     </li>
                     <li className="flex items-center">
                       <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                      <span>PLC based control system</span>
+                      <span>High adsorption capacity</span>
                     </li>
                     <li className="flex items-center">
                       <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                      <span>Dew point monitoring</span>
+                      <span>Long service life</span>
                     </li>
                     <li className="flex items-center">
                       <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                      <span>Efficient cycle operation</span>
+                      <span>Consistent performance</span>
                     </li>
                   </ul>
                 </div>
                 <div className="rounded-lg border p-6">
                   <h3 className="text-xl font-bold mb-4">Working Principle</h3>
                   <p className="text-gray-500">
-                    The HOC dryer utilizes the heat generated during air compression to regenerate the desiccant. The
-                    cycle operates in two phases:
+                    Carbon Molecular Sieves operate on the principle of kinetic selectivity. The separation is based on
+                    the difference in diffusion rates of different gas molecules through the precisely sized micropores
+                    of the CMS.
                   </p>
-                  <ol className="space-y-2 mt-4 list-decimal pl-5">
-                    <li className="text-gray-500">
-                      <span className="font-medium text-gray-900">Drying Phase:</span> Compressed air passes through one
-                      tower where moisture is adsorbed by the desiccant.
-                    </li>
-                    <li className="text-gray-500">
-                      <span className="font-medium text-gray-900">Regeneration Phase:</span> Hot air from the compressor
-                      (120°C+) passes through the second tower to regenerate the saturated desiccant.
-                    </li>
-                    <li className="text-gray-500">
-                      <span className="font-medium text-gray-900">Cooling Phase:</span> After regeneration, the tower is
-                      cooled down to ambient temperature before switching back to drying phase.
-                    </li>
-                  </ol>
+                  <p className="text-gray-500 mt-4">
+                    For example, in nitrogen generation, oxygen molecules (with a smaller kinetic diameter) diffuse more
+                    rapidly into the CMS pores than nitrogen molecules. This allows nitrogen to pass through while
+                    oxygen is retained, resulting in high-purity nitrogen production.
+                  </p>
+                  <p className="text-gray-500 mt-4">
+                    The adsorption process is typically carried out in a pressure swing adsorption (PSA) system, where
+                    the CMS is regenerated by reducing the pressure, allowing the adsorbed gases to be released.
+                  </p>
                 </div>
               </div>
             </div>
@@ -180,47 +174,47 @@ export default function HocDryerPage() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter">Advantages of HOC Dryers</h2>
+                <h2 className="text-3xl font-bold tracking-tighter">Advantages of Our CMS</h2>
                 <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Our Heat of Compression Dryers offer numerous benefits over traditional air drying methods.
+                  Our Carbon Molecular Sieves offer numerous benefits for gas separation applications.
                 </p>
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
               <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm">
-                <h3 className="text-xl font-bold">Energy Efficient</h3>
+                <h3 className="text-xl font-bold">High Selectivity</h3>
                 <p className="text-center text-gray-500">
-                  Utilizes waste heat from compression process, eliminating the need for external heaters.
+                  Precisely engineered pore structure enables highly selective gas separation based on molecular size.
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm">
-                <h3 className="text-xl font-bold">No Purge Loss</h3>
+                <h3 className="text-xl font-bold">Durability</h3>
                 <p className="text-center text-gray-500">
-                  Eliminates the purge loss drawback common in heatless type dryers, improving overall efficiency.
-                </p>
-              </div>
-              <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm">
-                <h3 className="text-xl font-bold">Simplified Design</h3>
-                <p className="text-center text-gray-500">
-                  No complex valving systems, resulting in more reliable operation and reduced maintenance.
-                </p>
-              </div>
-              <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm">
-                <h3 className="text-xl font-bold">Low Operating Cost</h3>
-                <p className="text-center text-gray-500">
-                  Reduced energy consumption and maintenance requirements lead to lower overall operating costs.
+                  Exceptional mechanical strength and resistance to attrition ensures long operational life.
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm">
                 <h3 className="text-xl font-bold">Consistent Performance</h3>
                 <p className="text-center text-gray-500">
-                  Delivers reliable drying performance with stable dew point throughout the operation cycle.
+                  Maintains separation efficiency over thousands of adsorption-desorption cycles.
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm">
-                <h3 className="text-xl font-bold">Long Service Life</h3>
+                <h3 className="text-xl font-bold">Low Pressure Drop</h3>
                 <p className="text-center text-gray-500">
-                  Durable construction and optimized regeneration cycle extends the life of the desiccant and equipment.
+                  Optimized particle size and shape minimizes pressure drop across adsorption beds.
+                </p>
+              </div>
+              <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm">
+                <h3 className="text-xl font-bold">High Purity Output</h3>
+                <p className="text-center text-gray-500">
+                  Enables production of high-purity gases for demanding industrial applications.
+                </p>
+              </div>
+              <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm">
+                <h3 className="text-xl font-bold">Cost Effective</h3>
+                <p className="text-center text-gray-500">
+                  Reduces operational costs through efficient gas separation and long service life.
                 </p>
               </div>
             </div>
@@ -233,7 +227,7 @@ export default function HocDryerPage() {
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter">Ready to Get Started?</h2>
                 <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Contact our team to discuss your air drying requirements and get a customized solution.
+                  Contact our team to discuss your Carbon Molecular Sieve requirements and get a customized solution.
                 </p>
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row mt-6">

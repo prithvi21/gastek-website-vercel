@@ -3,6 +3,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Award, Shield, Users, Globe, FileCheck } from "lucide-react"
+import { Footer } from "@/components/footer"
 
 export default function ProfilePage() {
   return (
@@ -24,7 +25,7 @@ export default function ProfilePage() {
             <Link href="/#products" className="text-sm font-medium hover:underline underline-offset-4">
               Products
             </Link>
-            <Link href="/#projects" className="text-sm font-medium hover:underline underline-offset-4">
+            <Link href="/projects" className="text-sm font-medium hover:underline underline-offset-4">
               Projects
             </Link>
             <Link href="/#contact" className="text-sm font-medium hover:underline underline-offset-4">
@@ -125,12 +126,7 @@ export default function ProfilePage() {
               </div>
               <div className="flex justify-center">
                 <div className="relative h-[150px] w-[300px]">
-                  <Image
-                    src="/placeholder.svg?height=150&width=300"
-                    alt="Carbotech Logo"
-                    fill
-                    className="object-contain"
-                  />
+                  <Image src="/images/carbotech-logo.png" alt="Carbotech Logo" fill className="object-contain" />
                 </div>
               </div>
             </div>
@@ -169,12 +165,7 @@ export default function ProfilePage() {
               </div>
               <div className="flex justify-center">
                 <div className="relative h-[150px] w-[300px]">
-                  <Image
-                    src="/placeholder.svg?height=150&width=300"
-                    alt="ISO Certification"
-                    fill
-                    className="object-contain"
-                  />
+                  <Image src="/images/quality-img.png" alt="ISO Certification" fill className="object-contain" />
                 </div>
               </div>
             </div>
@@ -252,24 +243,7 @@ export default function ProfilePage() {
           </div>
         </section>
       </main>
-      <footer className="w-full border-t py-6 md:py-0">
-        <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
-          <p className="text-center text-sm leading-loose text-gray-500 md:text-left">
-            © 2023 Gastek Engineering. All rights reserved.
-          </p>
-          <div className="flex gap-4">
-            <Link href="#" className="text-sm font-medium hover:underline underline-offset-4">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="text-sm font-medium hover:underline underline-offset-4">
-              Terms of Service
-            </Link>
-            <Link href="#" className="text-sm font-medium hover:underline underline-offset-4">
-              Sitemap
-            </Link>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

@@ -278,8 +278,13 @@ export default function OxygenPlantsPage() {
             <Link href="#" className="text-sm font-medium hover:underline underline-offset-4">
               Terms of Service
             </Link>
-            <Link href="#" className="text-sm font-medium hover:underline underline-offset-4">
-              Sitemap
+            <Link
+              href="https://www.youtube.com/watch?v=Ht9qNQVz7co"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium hover:underline underline-offset-4"
+            >
+              Company Video
             </Link>
           </div>
         </div>

@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { CheckCircle, ArrowRight, Download, Phone } from "lucide-react"
+import { Footer } from "@/components/footer"
 
 export default function NitrogenPlantsPage() {
   return (
@@ -23,7 +24,7 @@ export default function NitrogenPlantsPage() {
             <Link href="/#products" className="text-sm font-medium text-primary hover:underline underline-offset-4">
               Products
             </Link>
-            <Link href="/#projects" className="text-sm font-medium hover:underline underline-offset-4">
+            <Link href="/projects" className="text-sm font-medium hover:underline underline-offset-4">
               Projects
             </Link>
             <Link href="/#contact" className="text-sm font-medium hover:underline underline-offset-4">
@@ -43,8 +44,8 @@ export default function NitrogenPlantsPage() {
                 <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm">Product Specifications</div>
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">PSA Nitrogen Plants</h1>
                 <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  High-quality Pressure Swing Adsorption (PSA) Nitrogen Plants designed for various industrial
-                  applications.
+                  High-quality Nitrogen Generation Systems designed for various industrial applications, available in
+                  PSA and Membrane technologies.
                 </p>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Button asChild>
@@ -72,119 +73,131 @@ export default function NitrogenPlantsPage() {
 
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
-            <div className="grid gap-10 lg:grid-cols-2 lg:gap-12">
-              <div className="space-y-6">
-                <h2 className="text-3xl font-bold tracking-tighter">Product Overview</h2>
-                <p className="text-gray-500">
-                  Gastek Engineering is a leading manufacturer of PSA Nitrogen Plants. Our plants are designed to
-                  produce nitrogen gas with purity ranging from 95% to 99.999%, catering to various industrial
-                  applications. The PSA technology offers an economical and reliable solution for on-site nitrogen
-                  generation.
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+              <div className="space-y-2">
+                <h2 className="text-3xl font-bold tracking-tighter">Our Nitrogen Generation Technologies</h2>
+                <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  We offer two advanced technologies for nitrogen generation to suit your specific requirements.
                 </p>
-                <p className="text-gray-500">
-                  Our PSA Nitrogen Plants separate nitrogen from compressed air using Carbon Molecular Sieves (CMS). The
-                  process is based on the principle of Pressure Swing Adsorption, where oxygen, moisture, and other
-                  impurities are adsorbed by the CMS, allowing nitrogen to pass through.
-                </p>
-                <h3 className="text-xl font-bold mt-6">Applications</h3>
-                <ul className="space-y-2">
-                  <li className="flex items-center">
-                    <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                    <span>Food packaging and preservation</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                    <span>Electronics manufacturing</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                    <span>Pharmaceutical industry</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                    <span>Chemical processing</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                    <span>Heat treatment</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                    <span>Tire inflation</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                    <span>Oil & gas industry</span>
-                  </li>
-                </ul>
               </div>
-              <div className="space-y-6">
-                <h2 className="text-3xl font-bold tracking-tighter">Technical Specifications</h2>
-                <div className="rounded-lg border p-6">
-                  <h3 className="text-xl font-bold mb-4">Standard Features</h3>
-                  <ul className="space-y-2">
-                    <li className="flex items-center">
-                      <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                      <span>Flow rates: 1-5000 Nm³/hr</span>
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                      <span>Purity: 95-99.999%</span>
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                      <span>Pressure: 4-7 bar(g)</span>
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                      <span>Fully automatic operation</span>
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                      <span>PLC based control system</span>
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                      <span>Touch screen HMI</span>
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                      <span>Oxygen analyzer for purity monitoring</span>
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                      <span>Low maintenance requirements</span>
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                      <span>Energy efficient design</span>
-                    </li>
-                  </ul>
+            </div>
+
+            <div className="grid gap-12 lg:gap-16">
+              {/* PSA Nitrogen Generator Section */}
+              <div className="grid gap-10 lg:grid-cols-2 lg:gap-12 items-center">
+                <div className="space-y-6">
+                  <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm">Technology 1</div>
+                  <h2 className="text-3xl font-bold tracking-tighter">PSA Nitrogen Generator</h2>
+                  <p className="text-gray-500">
+                    Gastek Engineering is a leading manufacturer of PSA Nitrogen Plants. Our plants are designed to
+                    produce nitrogen gas with purity ranging from 95% to 99.999%, catering to various industrial
+                    applications. The PSA technology offers an economical and reliable solution for on-site nitrogen
+                    generation.
+                  </p>
+                  <p className="text-gray-500">
+                    Our PSA Nitrogen Plants separate nitrogen from compressed air using Carbon Molecular Sieves (CMS).
+                    The process is based on the principle of Pressure Swing Adsorption, where oxygen, moisture, and
+                    other impurities are adsorbed by the CMS, allowing nitrogen to pass through.
+                  </p>
+                  <div className="rounded-lg border p-6">
+                    <h3 className="text-xl font-bold mb-4">PSA Nitrogen Generator Specifications</h3>
+                    <ul className="space-y-2">
+                      <li className="flex items-center">
+                        <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
+                        <span>Flow rates: 1-5000 Nm³/hr</span>
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
+                        <span>Purity: 95-99.999%</span>
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
+                        <span>Pressure: 4-7 bar(g)</span>
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
+                        <span>Fully automatic operation</span>
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
+                        <span>PLC based control system</span>
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
+                        <span>Touch screen HMI</span>
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
+                        <span>Oxygen analyzer for purity monitoring</span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-                <div className="rounded-lg border p-6">
-                  <h3 className="text-xl font-bold mb-4">Optional Features</h3>
-                  <ul className="space-y-2">
-                    <li className="flex items-center">
-                      <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                      <span>Nitrogen buffer tank</span>
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                      <span>Nitrogen booster compressor</span>
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                      <span>Remote monitoring system</span>
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                      <span>Nitrogen cylinder filling system</span>
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
-                      <span>Customized control systems</span>
-                    </li>
-                  </ul>
+                <Image
+                  src="/images/psa-nitrogen-generator.png"
+                  width={600}
+                  height={450}
+                  alt="PSA Nitrogen Generator"
+                  className="mx-auto aspect-video overflow-hidden rounded-xl object-contain bg-white p-4 sm:w-full"
+                />
+              </div>
+
+              {/* Membrane Nitrogen Generator Section */}
+              <div className="grid gap-10 lg:grid-cols-2 lg:gap-12 items-center">
+                <Image
+                  src="/images/membrane-nitrogen-gen.png"
+                  width={600}
+                  height={450}
+                  alt="Membrane Nitrogen Generator"
+                  className="mx-auto aspect-video overflow-hidden rounded-xl object-contain bg-white p-4 sm:w-full lg:order-first"
+                />
+                <div className="space-y-6">
+                  <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm">Technology 2</div>
+                  <h2 className="text-3xl font-bold tracking-tighter">Membrane Nitrogen Generator</h2>
+                  <p className="text-gray-500">
+                    Membrane Nitrogen Generators utilize hollow fiber membrane technology to separate nitrogen from
+                    compressed air. The membrane consists of bundles of hollow fibers, with each fiber having a
+                    selective permeable layer that allows oxygen, water vapor, and other gases to permeate through the
+                    membrane wall faster than nitrogen.
+                  </p>
+                  <p className="text-gray-500">
+                    This technology is ideal for applications requiring lower purity nitrogen with flow rates from small
+                    to medium. Membrane systems are compact, have no moving parts, and require minimal maintenance,
+                    making them perfect for continuous operation in various industrial settings.
+                  </p>
+                  <div className="rounded-lg border p-6">
+                    <h3 className="text-xl font-bold mb-4">Membrane Nitrogen Generator Specifications</h3>
+                    <ul className="space-y-2">
+                      <li className="flex items-center">
+                        <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
+                        <span>Flow rates: 1-500 Nm³/hr</span>
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
+                        <span>Purity: 95-99.5%</span>
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
+                        <span>Pressure: 6-10 bar(g)</span>
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
+                        <span>No moving parts</span>
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
+                        <span>Instant start-up</span>
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
+                        <span>Low maintenance requirements</span>
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
+                        <span>Compact design</span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
@@ -195,9 +208,111 @@ export default function NitrogenPlantsPage() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter">Advantages of PSA Nitrogen Plants</h2>
+                <h2 className="text-3xl font-bold tracking-tighter">Applications</h2>
                 <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Our PSA Nitrogen Plants offer numerous benefits over traditional nitrogen supply methods.
+                  Our nitrogen generation systems are used across a wide range of industries and applications.
+                </p>
+              </div>
+            </div>
+            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
+              <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm">
+                <h3 className="text-xl font-bold">Food & Beverage</h3>
+                <p className="text-center text-gray-500">
+                  Food packaging, wine production, edible oil processing, and beverage dispensing.
+                </p>
+              </div>
+              <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm">
+                <h3 className="text-xl font-bold">Electronics</h3>
+                <p className="text-center text-gray-500">
+                  Wave soldering, reflow ovens, and semiconductor manufacturing.
+                </p>
+              </div>
+              <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm">
+                <h3 className="text-xl font-bold">Pharmaceuticals</h3>
+                <p className="text-center text-gray-500">Blanketing, packaging, and storage of sensitive materials.</p>
+              </div>
+              <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm">
+                <h3 className="text-xl font-bold">Chemical Processing</h3>
+                <p className="text-center text-gray-500">Reactor blanketing, purging, and process control.</p>
+              </div>
+              <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm">
+                <h3 className="text-xl font-bold">Metal Processing</h3>
+                <p className="text-center text-gray-500">Heat treatment, laser cutting, and annealing processes.</p>
+              </div>
+              <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm">
+                <h3 className="text-xl font-bold">Oil & Gas</h3>
+                <p className="text-center text-gray-500">
+                  Pipeline purging, tank blanketing, and enhanced oil recovery.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h2 className="text-3xl font-bold tracking-tighter">Choosing the Right Technology</h2>
+                <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  Selecting between PSA and Membrane technology depends on your specific requirements.
+                </p>
+              </div>
+            </div>
+            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-2">
+              <div className="rounded-lg border p-6">
+                <h3 className="text-xl font-bold mb-4">Choose PSA Technology When:</h3>
+                <ul className="space-y-2">
+                  <li className="flex items-center">
+                    <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
+                    <span>High purity nitrogen (up to 99.999%) is required</span>
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
+                    <span>Large flow rates are needed</span>
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
+                    <span>Energy efficiency is a priority</span>
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
+                    <span>Long-term operation with consistent purity is essential</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="rounded-lg border p-6">
+                <h3 className="text-xl font-bold mb-4">Choose Membrane Technology When:</h3>
+                <ul className="space-y-2">
+                  <li className="flex items-center">
+                    <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
+                    <span>Lower purity nitrogen (95-99.5%) is acceptable</span>
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
+                    <span>Smaller flow rates are required</span>
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
+                    <span>Compact installation space is limited</span>
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle className="mr-2 h-4 w-4 text-gray-700" />
+                    <span>Immediate start-up and minimal maintenance are priorities</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h2 className="text-3xl font-bold tracking-tighter">Advantages of On-Site Nitrogen Generation</h2>
+                <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  Our nitrogen generation systems offer numerous benefits over traditional nitrogen supply methods.
                 </p>
               </div>
             </div>
@@ -268,24 +383,7 @@ export default function NitrogenPlantsPage() {
           </div>
         </section>
       </main>
-      <footer className="w-full border-t py-6 md:py-0">
-        <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
-          <p className="text-center text-sm leading-loose text-gray-500 md:text-left">
-            © 2023 Gastek Engineering. All rights reserved.
-          </p>
-          <div className="flex gap-4">
-            <Link href="#" className="text-sm font-medium hover:underline underline-offset-4">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="text-sm font-medium hover:underline underline-offset-4">
-              Terms of Service
-            </Link>
-            <Link href="#" className="text-sm font-medium hover:underline underline-offset-4">
-              Sitemap
-            </Link>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }
