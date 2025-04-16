@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { submitContactForm } from "@/app/actions/contact-form"
 import { Loader2, CheckCircle, AlertCircle } from "lucide-react"
+import { useCsrfToken } from "@/lib/csrf"
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -17,18 +18,63 @@ export function ContactForm() {
     message?: string
   } | null>(null)
 
+  // Get CSRF token
+  const csrfToken = useCsrfToken()
+
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
     setIsSubmitting(true)
     setFormStatus(null)
 
     const formData = new FormData(event.currentTarget)
-    const data = {
-      name: formData.get("name") as string,
-      company: formData.get("company") as string,
-      email: formData.get("email") as string,
-      message: formData.get("message") as string,
+
+    // Add CSRF token to form data
+    formData.append("csrfToken", csrfToken)
+
+    // Basic client-side validation before sending
+    const name = formData.get("name") as string
+    const company = formData.get("company") as string
+    const email = formData.get("email") as string
+    const message = formData.get("message") as string
+
+    // Simple validation
+    if (!name || name.length < 2 || name.length > 100) {
+      setFormStatus({
+        success: false,
+        message: "Please enter a valid name (2-100 characters).",
+      })
+      setIsSubmitting(false)
+      return
     }
+
+    if (!company || company.length < 1 || company.length > 100) {
+      setFormStatus({
+        success: false,
+        message: "Please enter a valid company name (1-100 characters).",
+      })
+      setIsSubmitting(false)
+      return
+    }
+
+    if (!email || !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+      setFormStatus({
+        success: false,
+        message: "Please enter a valid email address.",
+      })
+      setIsSubmitting(false)
+      return
+    }
+
+    if (!message || message.length < 10 || message.length > 1000) {
+      setFormStatus({
+        success: false,
+        message: "Please enter a message between 10 and 1000 characters.",
+      })
+      setIsSubmitting(false)
+      return
+    }
+
+    const data = { name, company, email, message, csrfToken }
 
     try {
       const result = await submitContactForm(data)
@@ -39,6 +85,13 @@ export function ContactForm() {
         ;(event.target as HTMLFormElement).reset()
       }
     } catch (error) {
+      console.error("Form submission error:", {
+        errorType: error instanceof Error ? error.name : "Unknown",
+        errorMessage: error instanceof Error ? error.message : String(error),
+        formAction: "contactForm",
+        // Don't log user inputs
+      })
+
       setFormStatus({
         success: false,
         message: "An unexpected error occurred. Please try again.",
@@ -50,6 +103,9 @@ export function ContactForm() {
 
   return (
     <form className="grid gap-4" onSubmit={handleSubmit}>
+      {/* Hidden CSRF token field */}
+      <input type="hidden" name="csrfToken" value={csrfToken} />
+
       <div className="grid grid-cols-2 gap-4">
         <div className="grid gap-2">
           <Label htmlFor="name">Name</Label>

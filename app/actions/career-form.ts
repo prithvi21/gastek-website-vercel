@@ -6,7 +6,7 @@ import { validateCsrfToken } from "@/lib/csrf"
 import { createLogger } from "@/lib/logger"
 
 // Initialize logger
-const logger = createLogger("contact-form")
+const logger = createLogger("career-form")
 
 // Form validation schema with stricter validation and input limits
 const formSchema = z.object({
@@ -17,13 +17,6 @@ const formSchema = z.object({
     .refine((val) => /^[a-zA-Z0-9\s\-'.]+$/.test(val), {
       message: "Name contains invalid characters",
     }),
-  company: z
-    .string()
-    .min(1, { message: "Company is required" })
-    .max(100, { message: "Company must be less than 100 characters" })
-    .refine((val) => /^[a-zA-Z0-9\s\-'.&()]+$/.test(val), {
-      message: "Company contains invalid characters",
-    }),
   email: z
     .string()
     .email({ message: "Please enter a valid email address" })
@@ -31,11 +24,23 @@ const formSchema = z.object({
     .refine((val) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(val), {
       message: "Invalid email format",
     }),
+  phone: z
+    .string()
+    .min(5, { message: "Phone number must be at least 5 characters" })
+    .max(20, { message: "Phone number must be less than 20 characters" })
+    .refine((val) => /^[0-9+\-\s()]+$/.test(val), {
+      message: "Phone number contains invalid characters",
+    }),
+  position: z
+    .string()
+    .min(2, { message: "Position must be at least 2 characters" })
+    .max(100, { message: "Position must be less than 100 characters" }),
   message: z
     .string()
-    .min(10, { message: "Message must be at least 10 characters" })
-    .max(1000, { message: "Message must be less than 1000 characters" }),
+    .min(10, { message: "Cover letter must be at least 10 characters" })
+    .max(2000, { message: "Cover letter must be less than 2000 characters" }),
   csrfToken: z.string(),
+  cvFile: z.any().optional(),
 })
 
 type FormData = z.infer<typeof formSchema>
@@ -53,12 +58,12 @@ function sanitizeForEmail(text: string): string {
     .trim()
 }
 
-export async function submitContactForm(formData: FormData) {
+export async function submitCareerForm(formData: FormData) {
   try {
     // Validate CSRF token first
     if (!validateCsrfToken(formData.csrfToken)) {
       logger.warn("CSRF token validation failed", {
-        action: "submitContactForm",
+        action: "submitCareerForm",
         error: "Invalid CSRF token",
       })
       return {
@@ -73,7 +78,7 @@ export async function submitContactForm(formData: FormData) {
     // Check if environment variables are available
     if (!process.env.EMAIL_USER || !process.env.EMAIL_PASSWORD) {
       logger.error("Missing email environment variables", {
-        action: "submitContactForm",
+        action: "submitCareerForm",
         error: "Email configuration missing",
       })
       return {
@@ -84,23 +89,23 @@ export async function submitContactForm(formData: FormData) {
 
     // Sanitize all inputs for email content
     const sanitizedName = sanitizeForEmail(validatedData.name)
-    const sanitizedCompany = sanitizeForEmail(validatedData.company)
     const sanitizedEmail = sanitizeForEmail(validatedData.email)
+    const sanitizedPhone = sanitizeForEmail(validatedData.phone)
+    const sanitizedPosition = sanitizeForEmail(validatedData.position)
     const sanitizedMessage = sanitizeForEmail(validatedData.message)
 
-    // Create a transporter with enhanced security options
+    // Create a transporter with security options
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASSWORD,
       },
-      // Enhanced security options
+      // Add security options
       tls: {
         rejectUnauthorized: true,
-        minVersion: "TLSv1.2", // Enforce minimum TLS version
+        minVersion: "TLSv1.2",
       },
-      // DKIM signing removed - can be added later when you have the keys
     })
 
     // Format current date and time
@@ -117,44 +122,39 @@ export async function submitContactForm(formData: FormData) {
     // Email to admin - with sanitized content
     const adminMailOptions = {
       from: {
-        name: "Gastek Website Form",
+        name: "Gastek Careers Form",
         address: process.env.EMAIL_USER,
       },
       to: "osmproject21@gmail.com",
-      subject: `Form Submission: ${sanitizedName} - ${sanitizedCompany}`,
+      subject: `Career Application: ${sanitizedPosition} - ${sanitizedName}`,
       text: `
-New form submission details:
+New career application details:
 
 Name: ${sanitizedName}
-Company: ${sanitizedCompany}
 Email: ${sanitizedEmail}
-Requirements:
+Phone: ${sanitizedPhone}
+Position: ${sanitizedPosition}
+Cover Letter:
 ${sanitizedMessage}
 
 Submitted On: ${submissionDate}
       `,
     }
 
-    // Email to user (thank you) - with sanitized content
-    const userMailOptions = {
+    // Email to candidate (thank you) - with sanitized content
+    const candidateMailOptions = {
       from: {
-        name: "Gastek Engineering",
+        name: "Gastek Engineering Careers",
         address: process.env.EMAIL_USER,
       },
       to: sanitizedEmail,
-      subject: "Thank you for contacting Gastek Engineering",
+      subject: "Thank you for your application to Gastek Engineering",
       text: `
 Dear ${sanitizedName},
 
-Thank you for submitting your inquiry to Gastek Engineering. We have received your message and will get back to you as soon as possible.
+Thank you for submitting your application to Gastek Engineering. We have received your information and will review your qualifications for the ${sanitizedPosition} position.
 
-Here's a copy of the information you provided:
-- Name: ${sanitizedName}
-- Company: ${sanitizedCompany}
-- Email: ${sanitizedEmail}
-- Requirements: ${sanitizedMessage}
-
-If you have any additional questions or information to provide, please feel free to reply to this email.
+If your qualifications match our requirements, our HR team will contact you for the next steps in the selection process.
 
 Best regards,
 The Gastek Engineering HR Team
@@ -164,15 +164,16 @@ The Gastek Engineering HR Team
     // Send emails with proper error handling
     try {
       await transporter.sendMail(adminMailOptions)
-      await transporter.sendMail(userMailOptions)
+      await transporter.sendMail(candidateMailOptions)
 
-      logger.info("Contact form submitted successfully", {
-        action: "submitContactForm",
+      logger.info("Career form submitted successfully", {
+        action: "submitCareerForm",
+        position: sanitizedPosition,
         recipient: sanitizedEmail.substring(0, 3) + "***", // Log only partial email for privacy
       })
     } catch (emailError) {
       logger.error("Error sending email", {
-        action: "submitContactForm",
+        action: "submitCareerForm",
         errorType: emailError instanceof Error ? emailError.name : "Unknown",
         errorMessage: emailError instanceof Error ? emailError.message : String(emailError),
         // Don't log user data
@@ -184,11 +185,11 @@ The Gastek Engineering HR Team
       }
     }
 
-    return { success: true, message: "Your message has been sent successfully!" }
+    return { success: true, message: "Your application has been submitted successfully!" }
   } catch (error) {
     if (error instanceof z.ZodError) {
       logger.warn("Form validation failed", {
-        action: "submitContactForm",
+        action: "submitCareerForm",
         validationErrors: error.errors.map((e) => ({ path: e.path.join("."), message: e.message })),
       })
 
@@ -199,12 +200,12 @@ The Gastek Engineering HR Team
       }
     }
 
-    logger.error("Unexpected error in contact form submission", {
-      action: "submitContactForm",
+    logger.error("Unexpected error in career form submission", {
+      action: "submitCareerForm",
       errorType: error instanceof Error ? error.name : "Unknown",
       errorMessage: error instanceof Error ? error.message : String(error),
     })
 
-    return { success: false, message: "Failed to send message. Please try again later." }
+    return { success: false, message: "Failed to submit application. Please try again later." }
   }
 }
