@@ -7,26 +7,32 @@ export default function CMSPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Link href="/">
-              <Image src="/images/logo.png" alt="Gastek Engineering" width={120} height={40} />
+        <div className="container flex h-24 items-center justify-between">
+          <div className="flex items-center gap-2 mt-2 -ml-2">
+            <Link href="/" className="transition-transform hover:scale-105">
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/GASTEK_LOGO.png-VH4fb4NK8Jf45ayY41PIzcvkTN7whI.webp"
+                alt="Gastek Engineering"
+                width={80}
+                height={80}
+                className="h-auto"
+              />
             </Link>
           </div>
           <nav className="hidden md:flex gap-6">
-            <Link href="/" className="text-sm font-medium hover:underline underline-offset-4">
+            <Link href="/" className="text-base font-medium hover:underline underline-offset-4">
               Home
             </Link>
-            <Link href="/profile" className="text-sm font-medium hover:underline underline-offset-4">
+            <Link href="/profile" className="text-base font-medium hover:underline underline-offset-4">
               Profile
             </Link>
-            <Link href="/#products" className="text-sm font-medium text-primary hover:underline underline-offset-4">
+            <Link href="/#products" className="text-base font-medium text-primary hover:underline underline-offset-4">
               Products
             </Link>
-            <Link href="/#projects" className="text-sm font-medium hover:underline underline-offset-4">
+            <Link href="/#projects" className="text-base font-medium hover:underline underline-offset-4">
               Projects
             </Link>
-            <Link href="/#contact" className="text-sm font-medium hover:underline underline-offset-4">
+            <Link href="/#contact" className="text-base font-medium hover:underline underline-offset-4">
               Contact
             </Link>
           </nav>

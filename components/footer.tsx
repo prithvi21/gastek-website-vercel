@@ -11,7 +11,13 @@ export function Footer() {
           {/* Company Info */}
           <div className="flex flex-col items-center md:items-start">
             <div className="bg-white p-2 rounded-md mb-6">
-              <Image src="/images/logo.png" width={120} height={120} alt="Gastek Engineering" className="h-auto" />
+              <Image
+                src="/images/gastek-new-logo.png"
+                width={200}
+                height={200}
+                alt="Gastek Engineering - 28 Years Serving Industry"
+                className="h-auto"
+              />
             </div>
             <p className="text-gray-400 text-sm max-w-xs text-center md:text-left">
               Manufacturer and exporter of high-quality gas generation systems since 1993, setting industry benchmarks
